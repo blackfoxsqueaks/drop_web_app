@@ -10848,7 +10848,7 @@ return A.q($async$aiR,r)},
 bgW(a,b){return A.bSV(a,b)},
 bSV(a,b){var s=0,r=A.r(t.H),q=1,p,o,n,m,l,k,j,i,h
 var $async$bgW=A.n(function(c,d){if(c===1){p=d
-s=q}while(true)switch(s){case 0:l=A.by("https://drop-server.vercel.app/washdrop_invoice",0,null)
+s=q}while(true)switch(s){case 0:l=A.by("https://washdrop-invoice.vercel.app/washdrop_invoice",0,null)
 k=t.N
 j=A.I(["Content-Type","application/json"],k,k)
 i=B.G.fI(A.I(["order_id",a],k,k),null)
