@@ -3,7 +3,7 @@
     "short_name": "Drop",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#346df8",
+    "background_color": "#ffffff",
     "theme_color": "#346df8",
     "description": "The All-In-One Car App",
     "orientation": "portrait-primary",

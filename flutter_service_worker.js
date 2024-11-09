@@ -3,12 +3,15 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"flutter_bootstrap.js": "c59ca796af2f8fcf7e4203ace580f971",
+const RESOURCES = {"flutter_bootstrap.js": "7eaa23126e2ef18e3843ea16999964b2",
 "version.json": "4a48ed09b2b0353453dd07c7efc415d3",
-"index.html": "2f3a3d22baf497a25f32965fc8bc7c3c",
-"/": "2f3a3d22baf497a25f32965fc8bc7c3c",
-"main.dart.js": "dbc48ea1fbe450bd7cf411f47ee91a69",
+"index.html": "c2f987ea9500da3926e73605277e69dd",
+"/": "c2f987ea9500da3926e73605277e69dd",
+"styles.css": "954ac436f3df439ed5441908000901af",
+"main.dart.js": "a6995395e5493be9198a9f2237c986d5",
 "flutter.js": "f393d3c16b631f36852323de8e583132",
+"drop-loading-animation.gif": "6a6c307a62b63acf67146b20e138808d",
+"drop_init.js": "b203212da77ea2c52101e2dd96ee755b",
 "favicon.png": "a28077fb0620298fe0d78c6627af39e2",
 "icons/favicon.ico": "558c1126983e412da17a6d9a024a2625",
 "icons/apple-touch-icon.png": "7f48f7e6a604593daa4fe68b3ed5880b",
@@ -16,7 +19,7 @@ const RESOURCES = {"flutter_bootstrap.js": "c59ca796af2f8fcf7e4203ace580f971",
 "icons/Icon-maskable-192.png": "20c2a3ee4df167403da6704f2793afc7",
 "icons/Icon-maskable-512.png": "a28077fb0620298fe0d78c6627af39e2",
 "icons/icon-512.png": "32346893ec142edac55486b5c1a45a9d",
-"manifest.json": "b02a710b0de26404f05ef58957ba7312",
+"manifest.json": "ee83ac1f64b2a11506e9c6223100f945",
 "assets/shorebird.yaml": "5a9d74009084930628efceddf8c7307d",
 "assets/AssetManifest.json": "e70f437fc8d0384846448a90b8244ef5",
 "assets/NOTICES": "17cd95d9db9fccd90973d0d986f55567",
@@ -32,7 +35,7 @@ const RESOURCES = {"flutter_bootstrap.js": "c59ca796af2f8fcf7e4203ace580f971",
 "assets/packages/flex_color_picker/assets/opacity.png": "49c4f3bcb1b25364bb4c255edcaaf5b2",
 "assets/shaders/ink_sparkle.frag": "ecc85a2e95f5e9f53123dcaf8cb9b6ce",
 "assets/AssetManifest.bin": "efda6f1ee5fa6edfda3e221c2f336f71",
-"assets/fonts/MaterialIcons-Regular.otf": "0f4ebca4faf1442e99f5bad1585c1a17",
+"assets/fonts/MaterialIcons-Regular.otf": "0e5bb38ce382cd1630950324db794334",
 "assets/assets/WashDropHead.png": "6712114ac704a958635a1293fd084848",
 "assets/assets/Speedometer.png": "035b5ed8563bae90ca9b371ce9eab63b",
 "assets/assets/DropGame.json": "e918e537bfb0e312384581da3ef70bb3",
@@ -98,10 +101,14 @@ const RESOURCES = {"flutter_bootstrap.js": "c59ca796af2f8fcf7e4203ace580f971",
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = ["main.dart.js",
-"index.html",
-"flutter_bootstrap.js",
-"assets/AssetManifest.bin.json",
-"assets/FontManifest.json"];
+  "index.html",
+  "flutter_bootstrap.js",
+  "assets/AssetManifest.bin.json",
+  "assets/FontManifest.json",
+  "canvaskit/skwasm.js",
+  "canvaskit/skwasm.wasm",
+  "canvaskit/canvaskit.js"
+  ];
 
 // During install, the TEMP cache is populated with the application shell files.
 self.addEventListener("install", (event) => {
