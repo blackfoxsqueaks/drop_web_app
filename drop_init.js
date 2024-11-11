@@ -1,4 +1,6 @@
-    // Canvaskit Run Command: flutter build web --web-renderer canvaskit --release --dart-define=FLUTTER_WEB_CANVASKIT_URL=/canvaskit/
+    /* Canvaskit Run Command:
+    flutter build web --web-renderer canvaskit --release --dart-define=FLUTTER_WEB_CANVASKIT_URL=/canvaskit/
+    */
 
     /* Files to Cache in Service Worker:
     const CORE = ["main.dart.js",
@@ -11,7 +13,23 @@
         "canvaskit/canvaskit.js"
         ]; 
     */
-    
+
+    /* Flutter Service Worker
+    onEntrypointLoaded: async function(engineInitializer) {
+      const appRunner = await engineInitializer.initializeEngine();
+      await appRunner.runApp();
+
+      // Remove the image element with the class 'header' once the app is loaded
+      console.log('Drop App Loaded');
+
+      await new Promise(resolve => setTimeout(resolve, 15000));
+
+      const headerImage = document.querySelector('.header');
+      if (headerImage) {
+        headerImage.remove();
+      }
+    }
+    */
 
     function getUrlParameter(name) {
       name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');

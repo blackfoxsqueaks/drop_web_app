@@ -11,20 +11,6 @@ _flutter.buildConfig = {"engineRevision":"db49896cf25ceabc44096d5f088d86414e05a7
 
 _flutter.loader.load({
   serviceWorkerSettings: {
-    serviceWorkerVersion: "3529116830"
-  },
-  onEntrypointLoaded: async function(engineInitializer) {
-  const appRunner = await engineInitializer.initializeEngine();
-  await appRunner.runApp();
-
-  // Remove the image element with the class 'header' once the app is loaded
-  console.log('Drop App Loaded');
-
-  await new Promise(resolve => setTimeout(resolve, 15000));
-
-  const headerImage = document.querySelector('.header');
-  if (headerImage) {
-    headerImage.remove();
+    serviceWorkerVersion: "1001231224"
   }
-}
 });
