@@ -41,23 +41,6 @@
       return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
     }
 
-    if (
-      navigator.userAgent.indexOf("Safari") !== -1 &&
-      navigator.userAgent.indexOf("Chrome") === -1
-    ) {
-      var originalGetContext = HTMLCanvasElement.prototype.getContext;
-      HTMLCanvasElement.prototype.getContext = function () {
-        var contextType = arguments[0];
-        if (contextType === "webgl2") {
-          return;
-        }
-        return originalGetContext.apply(
-          this,
-          [contextType].concat(Array.prototype.slice.call(arguments, 1)),
-        );
-      };
-    }
-
     document.addEventListener("DOMContentLoaded", function () {
       const loadingText = document.getElementById('loading-text');
       var barContent = document.querySelector('#bar-content');
