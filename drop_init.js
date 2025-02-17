@@ -41,6 +41,23 @@
       return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
     }
 
+    if (
+      navigator.userAgent.indexOf("Safari") !== -1 &&
+      navigator.userAgent.indexOf("Chrome") === -1
+    ) {
+      var originalGetContext = HTMLCanvasElement.prototype.getContext;
+      HTMLCanvasElement.prototype.getContext = function () {
+        var contextType = arguments[0];
+        if (contextType === "webgl2") {
+          return;
+        }
+        return originalGetContext.apply(
+          this,
+          [contextType].concat(Array.prototype.slice.call(arguments, 1)),
+        );
+      };
+    }
+
     document.addEventListener("DOMContentLoaded", function () {
       const loadingText = document.getElementById('loading-text');
       var barContent = document.querySelector('#bar-content');
@@ -103,61 +120,24 @@
       });
     });
 
-
-
     // Prevent edge swipes
     const swipeHack = preventBrowserHistorySwipeGestures();
 
     function preventBrowserHistorySwipeGestures() {
-      let touchStartX = 0;
-      let touchStartY = 0;
-
       function touchStart(ev) {
         if (ev.touches.length === 1) {
           const touch = ev.touches[0];
-          touchStartX = touch.clientX;
-          touchStartY = touch.clientY;
-
-          // Block swipe gesture if the touch starts near the left or right edge
           if (
-            touchStartX < window.innerWidth * 0.1 ||
-            touchStartX > window.innerWidth * 0.9
+            touch.clientX < window.innerWidth * 0.1 ||
+            touch.clientX > window.innerWidth * 0.9
           ) {
             ev.preventDefault();
           }
         }
       }
 
-      function touchMove(ev) {
-        if (ev.touches.length === 1) {
-          const touch = ev.touches[0];
-          const dx = touch.clientX - touchStartX;
-          const dy = touch.clientY - touchStartY;
-
-          // Block horizontal swipe motions (left or right)
-          if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
-            ev.preventDefault(); // Prevent swipe gesture
-          }
-        }
-      }
-
       const options = { passive: false };
       window.addEventListener("touchstart", touchStart, options);
-      window.addEventListener("touchmove", touchMove, options);
 
-      return () => {
-        window.removeEventListener("touchstart", touchStart, options);
-        window.removeEventListener("touchmove", touchMove, options);
-      };
+      return () => window.removeEventListener("touchstart", touchStart, options);
     }
-
-window.addEventListener("beforeunload", function (event) {
-  event.preventDefault(); // Cancel the event
-  event.returnValue = '';  // Display the browser's confirmation dialog
-});
-
-window.history.pushState(null, "", window.location.href);
-window.onpopstate = function() {
-  window.history.pushState(null, "", window.location.href);
-};
-
