@@ -3,12 +3,12 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"flutter_bootstrap.js": "0692982a319ab5803807b59e543a0a0f",
+const RESOURCES = {"flutter_bootstrap.js": "c47134f1f59b9cc3c4c2afe7263d5d25",
 "version.json": "cdb8cc1e22a8cb9604272a533a7e56c3",
 "index.html": "dffbca6137d8ade27c0a917ed00c7ebd",
 "/": "dffbca6137d8ade27c0a917ed00c7ebd",
 "styles.css": "d63722921f5e96d1e63d80a3e0448544",
-"main.dart.js": "814c2709e32f8551fefa3161fd157a63",
+"main.dart.js": "28c5517fafd95e813c92cd333c276332",
 "flutter.js": "4b2350e14c6650ba82871f60906437ea",
 "drop-loading-animation.gif": "6a6c307a62b63acf67146b20e138808d",
 "drop_header_desktop.webp": "d95a01e8489486fec07193ce6900ba83",
@@ -109,7 +109,7 @@ const CORE = ["main.dart.js",
         "canvaskit/skwasm.js",
         "canvaskit/skwasm.wasm",
         "canvaskit/canvaskit.js"
-        ]
+        ];
 
 // During install, the TEMP cache is populated with the application shell files.
 self.addEventListener("install", (event) => {
