@@ -55,12 +55,13 @@
   }
   .progress-bar-container {
     width: 70%;
+    max-width: 300px; /* Ensures it doesn't stretch too wide */
     height: 20px;
     background-color: lightgray;
     border-radius: 20px;
     overflow: hidden;
-    margin-top: 2vh;
-  }
+    margin: 2vh auto 0 auto; /* Centers it horizontally */
+}
   .progress-bar {
     height: 100%;
     width: 0;
