@@ -86,12 +86,8 @@
   </div>
 
   <script>
-  function isMobile() {
-    return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-  }
-
   function adjustLayout() {
-    if (isMobile()) {
+    if (window.innerWidth <= 768) { // Mobile screen width threshold
       // Load Flutter Bootstrap only on mobile
       if (!document.getElementById("flutter-bootstrap")) {
         var script = document.createElement("script");
@@ -116,17 +112,18 @@
   // Initial check
   adjustLayout();
 
-  // Store initial device type
-  let lastDeviceType = isMobile() ? "mobile" : "desktop";
+  // Store initial layout type
+  let lastLayoutType = window.innerWidth <= 768 ? "mobile" : "desktop";
 
-  // Listen for window resize and refresh if device type changes
+  // Listen for window resize and refresh if layout type changes
   window.addEventListener("resize", () => {
-    let currentDeviceType = isMobile() ? "mobile" : "desktop";
-    if (lastDeviceType !== currentDeviceType) {
+    let currentLayoutType = window.innerWidth <= 768 ? "mobile" : "desktop";
+    if (lastLayoutType !== currentLayoutType) {
       location.reload(); // Refresh to properly adjust layout
     }
   });
 </script>
+
 
 </body>
 
