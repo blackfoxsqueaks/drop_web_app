@@ -3,12 +3,12 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"flutter_bootstrap.js": "c47134f1f59b9cc3c4c2afe7263d5d25",
+const RESOURCES = {"flutter_bootstrap.js": "95108b3a451731db4fff51aa02c9fc56",
 "version.json": "cdb8cc1e22a8cb9604272a533a7e56c3",
 "index.html": "dffbca6137d8ade27c0a917ed00c7ebd",
 "/": "dffbca6137d8ade27c0a917ed00c7ebd",
 "styles.css": "d63722921f5e96d1e63d80a3e0448544",
-"main.dart.js": "28c5517fafd95e813c92cd333c276332",
+"main.dart.js": "e267f82c3a894aa63581a7dfd973308f",
 "flutter.js": "4b2350e14c6650ba82871f60906437ea",
 "drop-loading-animation.gif": "6a6c307a62b63acf67146b20e138808d",
 "drop_header_desktop.webp": "d95a01e8489486fec07193ce6900ba83",
@@ -27,13 +27,13 @@ const RESOURCES = {"flutter_bootstrap.js": "c47134f1f59b9cc3c4c2afe7263d5d25",
 "assets/NOTICES": "1d436c0060077bc7c48ca72349be72dc",
 "assets/FontManifest.json": "135d2f113bd6753343c1a93f287d84ed",
 "assets/AssetManifest.bin.json": "1c1ad1ea4559b0cb004a2e683ec3b65d",
-"assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "5f9695d0ea0d42795de5eaafaaada6c8",
+"assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "fe03930a4a6d28c957cc5961890b5b16",
 "assets/packages/dash_chat_2/assets/placeholder.png": "ce1fece6c831b69b75c6c25a60b5b0f3",
 "assets/packages/dash_chat_2/assets/profile_placeholder.png": "77f5794e2eb49f7989b8f85e92cfa4e0",
 "assets/packages/flex_color_picker/assets/opacity.png": "49c4f3bcb1b25364bb4c255edcaaf5b2",
 "assets/shaders/ink_sparkle.frag": "ecc85a2e95f5e9f53123dcaf8cb9b6ce",
 "assets/AssetManifest.bin": "7d0407589921fba720f1621c35a60ce9",
-"assets/fonts/MaterialIcons-Regular.otf": "992472f7bf7ec6fbb29236c96aa9bb68",
+"assets/fonts/MaterialIcons-Regular.otf": "e413a8869aac2b35bb50fc8009222771",
 "assets/assets/check.png": "352d0ceda3038d2fdaedfb7df351fe35",
 "assets/assets/egypt_flag.png": "0fedfea839ac07061a7df8ef1e4a7579",
 "assets/assets/arrow_right.png": "3fa6296d8a76128ca26712868afb45a8",
@@ -109,7 +109,7 @@ const CORE = ["main.dart.js",
         "canvaskit/skwasm.js",
         "canvaskit/skwasm.wasm",
         "canvaskit/canvaskit.js"
-        ];
+        ]; 
 
 // During install, the TEMP cache is populated with the application shell files.
 self.addEventListener("install", (event) => {
