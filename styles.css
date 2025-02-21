@@ -69,3 +69,6 @@
     border-radius: 20px;
     transition: width 1s ease;
   }
+  html, body {
+    overscroll-behavior-x: none;
+  }
