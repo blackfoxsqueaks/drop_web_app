@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 
-  <base href="/">
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
@@ -77,55 +76,50 @@
       <div id="loading-text" class="loading-text">Revving up engines</div>
     </div>
 
-    <div id="desktop-message" class="desktop-message" style="display: none; text-align: center; margin-bottom: 120px;">
-      <img id="download-qr" src="drop-download-code.png" alt="Download QR Code" style="max-width: 400px; margin-bottom: 10px;">
-      <p style="font-weight: 900; font-size: 20px;">Drop is only available on mobile devices.</p>
-      <p>Scan this code to download the app.</p>
+    <div id="desktop-message" class="desktop-message" style="display: none; width: 100vw; height: 100vh;">
+      <iframe id="desktop-iframe" src="https://drop-eg.com/scan-to-download.html"
+              style="width: 100vw; height: 100vh; border: none;"></iframe>
     </div>
   </div>
 
   <script>
-  function isMobile() {
-    return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-  }
+    function adjustLayout() {
+      if (window.innerWidth <= 768) {
+        // Load Flutter Bootstrap only on mobile
+        if (!document.getElementById("flutter-bootstrap")) {
+          var script = document.createElement("script");
+          script.id = "flutter-bootstrap";
+          script.src = "flutter_bootstrap.js";
+          script.async = true;
+          document.body.appendChild(script);
+        }
 
-  function adjustLayout() {
-    if (isMobile()) {
-      // Load Flutter Bootstrap only on mobile
-      if (!document.getElementById("flutter-bootstrap")) {
-        var script = document.createElement("script");
-        script.id = "flutter-bootstrap";
-        script.src = "flutter_bootstrap.js";
-        script.async = true;
-        document.body.appendChild(script);
+        // Show mobile UI
+        document.getElementById("mobile-content").style.display = "block";
+        document.getElementById("desktop-message").style.display = "none";
+        document.getElementById("header-image").src = "drop_header_web.png";
+      } else {
+        // Show desktop message and load the iframe
+        document.getElementById("mobile-content").style.display = "none";
+        document.getElementById("desktop-message").style.display = "block";
+        document.getElementById("header-image").style.display = "none";
       }
-
-      // Show mobile UI
-      document.getElementById("mobile-content").style.display = "block";
-      document.getElementById("desktop-message").style.display = "none";
-      document.getElementById("header-image").src = "assets/drop_header_web.png";
-    } else {
-      // Show desktop message and hide mobile content
-      document.getElementById("mobile-content").style.display = "none";
-      document.getElementById("desktop-message").style.display = "block";
-      document.getElementById("header-image").src = "drop_header_desktop.webp";
     }
-  }
 
-  // Initial check
-  adjustLayout();
+    // Initial check
+    adjustLayout();
 
-  // Store initial device type
-  let lastDeviceType = isMobile() ? "mobile" : "desktop";
+    // Store initial screen type
+    let lastScreenType = window.innerWidth <= 768 ? "mobile" : "desktop";
 
-  // Listen for window resize and refresh if device type changes
-  window.addEventListener("resize", () => {
-    let currentDeviceType = isMobile() ? "mobile" : "desktop";
-    if (lastDeviceType !== currentDeviceType) {
-      location.reload(); // Refresh to properly adjust layout
-    }
-  });
-</script>
+    // Listen for window resize and refresh if screen type changes
+    window.addEventListener("resize", () => {
+      let currentScreenType = window.innerWidth <= 768 ? "mobile" : "desktop";
+      if (lastScreenType !== currentScreenType) {
+        location.reload(); // Refresh to properly adjust layout
+      }
+    });
+  </script>
 
 </body>
 

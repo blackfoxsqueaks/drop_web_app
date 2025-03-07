@@ -9,6 +9,9 @@
     margin: 0;
     padding: 0;
   }
+  ::-webkit-scrollbar {
+    display: none;
+  }
   body {
     margin: 0;
     width: 100%;
@@ -69,6 +72,7 @@
     border-radius: 20px;
     transition: width 1s ease;
   }
+
   html, body {
     overscroll-behavior-x: none;
   }

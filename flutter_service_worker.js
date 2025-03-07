@@ -3,17 +3,17 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"flutter_bootstrap.js": "5a51156164d3f175b27b1e2615cc74c4",
+const RESOURCES = {"flutter_bootstrap.js": "647278862dc29e5b0c852f6a448942e8",
 "version.json": "f6398f2ab43d445031afb2b90001dc38",
-"index.html": "bf87360584dd21d55cd81973741849c9",
-"/": "bf87360584dd21d55cd81973741849c9",
-"styles.css": "501c7ee4703bc3eb076d9c5edce812bd",
-"main.dart.js": "5ca771379b0624e827673cc54d029605",
+"index.html": "b6b442cab6625e46d0326737850d92af",
+"/": "b6b442cab6625e46d0326737850d92af",
+"styles.css": "443fe359e12de7fcaf7a9a2445976c45",
+"main.dart.js": "a366b55f5a5437154451f670178e13db",
 "flutter.js": "76f08d47ff9f5715220992f993002504",
 "drop-loading-animation.gif": "6a6c307a62b63acf67146b20e138808d",
-"drop_header_desktop.webp": "d95a01e8489486fec07193ce6900ba83",
 "drop_init.js": "4eeb70096b06bdc6a8b2c4b07072d441",
 "favicon.png": "a28077fb0620298fe0d78c6627af39e2",
+"drop_header_web.png": "c4cc82e79f1e93b2dcd307cbcabb331f",
 "icons/favicon.ico": "558c1126983e412da17a6d9a024a2625",
 "icons/apple-touch-icon.png": "7f48f7e6a604593daa4fe68b3ed5880b",
 "icons/icon-192.png": "564a3051710df03c3c2d3233ee426349",
@@ -21,7 +21,6 @@ const RESOURCES = {"flutter_bootstrap.js": "5a51156164d3f175b27b1e2615cc74c4",
 "icons/Icon-maskable-512.png": "a28077fb0620298fe0d78c6627af39e2",
 "icons/icon-512.png": "32346893ec142edac55486b5c1a45a9d",
 "manifest.json": "ee83ac1f64b2a11506e9c6223100f945",
-"drop-download-code.png": "a127e8ea2736b6e4f3cb885546859280",
 "assets/shorebird.yaml": "5a9d74009084930628efceddf8c7307d",
 "assets/AssetManifest.json": "f9100fc09ad2ded6324265dfe4965776",
 "assets/NOTICES": "2b0d7dee28c59ddd37c24813594b2713",
@@ -102,10 +101,14 @@ const RESOURCES = {"flutter_bootstrap.js": "5a51156164d3f175b27b1e2615cc74c4",
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = ["main.dart.js",
-"index.html",
-"flutter_bootstrap.js",
-"assets/AssetManifest.bin.json",
-"assets/FontManifest.json"];
+        "index.html",
+        "flutter_bootstrap.js",
+        "assets/AssetManifest.bin.json",
+        "assets/FontManifest.json",
+        "canvaskit/skwasm.js",
+        "canvaskit/skwasm.wasm",
+        "canvaskit/canvaskit.js"
+        ]; 
 
 // During install, the TEMP cache is populated with the application shell files.
 self.addEventListener("install", (event) => {
